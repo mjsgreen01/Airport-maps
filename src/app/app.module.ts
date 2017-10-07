@@ -30,6 +30,7 @@ import { routes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { AppState } from 'common/stores';
+import { JgAirportsModule } from './airports/index';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AppState } from 'common/stores';
     HttpModule,
     APP_IMPORTS,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    JgAirportsModule
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],
