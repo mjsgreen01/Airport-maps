@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TransferState } from '../modules/transfer-state/transfer-state';
 
 import { views } from './app-nav-views';
-import { MOBILE } from './services/constants';
+import { MOBILE } from '../common/services/constants';
 
 @Component({
   selector: 'my-app',

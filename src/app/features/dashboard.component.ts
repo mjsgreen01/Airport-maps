@@ -4,10 +4,10 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { TransferHttp } from '../../modules/transfer-http/transfer-http';
 
-import { AppState } from '../reducers';
+import { AppState } from 'common/stores';
 import { Store } from '@ngrx/store';
-import { UserActions } from '../user/user.actions';
-import { User } from '../user/user.model';
+import { UserActions } from '../../common/stores/user/user.actions';
+import { User } from '../../common/stores/user/user.model';
 
 @Component({
   selector: 'my-dashboard',

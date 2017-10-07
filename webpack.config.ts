@@ -12,6 +12,7 @@ import {
   MY_COPY_FOLDERS, MY_POLYFILL_DLLS, MY_VENDOR_DLLS, MY_CLIENT_PLUGINS, MY_CLIENT_PRODUCTION_PLUGINS,
   MY_CLIENT_RULES, SHOW_WEBPACK_BUNDLE_ANALYZER
 } from './constants';
+import * as path from 'path';
 
 const {
   DefinePlugin,
@@ -342,7 +343,8 @@ const serverConfig: WebpackConfig = {
 
 const defaultConfig = {
   resolve: {
-    extensions: ['.ts', '.js', '.json']
+    extensions: ['.ts', '.js', '.json'],
+    modules: [path.resolve('./src'), 'node_modules']
   }
 };
 

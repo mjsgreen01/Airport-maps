@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { UserActions } from './user.actions';
-import { AppState } from '../reducers';
+import { AppState } from 'common/stores';
 import { UserService } from './user.service';
 
 @Injectable()

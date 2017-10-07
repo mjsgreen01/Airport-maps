@@ -10,9 +10,9 @@ import { useLogMonitor } from '@ngrx/store-log-monitor';
 
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
-import { rootReducer } from './reducers';
+import { rootReducer } from '../common/stores';
 import { StoreDevToolsModule } from './features/store-devtools.module';
-import { UserEffects } from './user/user.effects';
+import { UserEffects } from '../common/stores/user/user.effects';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&

@@ -4,7 +4,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { storeLogger } from 'ngrx-store-logger';
 import { routerReducer, RouterState } from '@ngrx/router-store';
 
-import * as fromUser from '../user/user.reducer';
+import * as fromUser from './user/user.reducer';
 
 const modules = {
   'user': fromUser
