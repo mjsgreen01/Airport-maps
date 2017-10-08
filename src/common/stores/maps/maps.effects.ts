@@ -20,7 +20,7 @@ export class MapsEffects {
   ) { }
 
   @Effect()
-  fetchCurrentUserDetails$: Observable<Action> = this.actions$
+  fetchDistanceBetweenPlaces$: Observable<Action> = this.actions$
     .ofType(mapsActions.ActionTypes.SET_START_PLACE)
     .map(toPayload)
     .withLatestFrom(this.store.select(appSelectors.getEndPlace))
@@ -28,6 +28,18 @@ export class MapsEffects {
     .switchMap(([start, end]) => this.mapsService.getDistanceBetweenPlaces(start, end)
       .mergeMap((res: any) => Observable.of(
         new mapsActions.SetDistanceBetweenPlaces(res)
+      ))
+    );
+
+  @Effect()
+  fetchDirectionsBetweenPlaces$: Observable<Action> = this.actions$
+    .ofType(mapsActions.ActionTypes.SET_START_PLACE)
+    .map(toPayload)
+    .withLatestFrom(this.store.select(appSelectors.getEndPlace))
+    .filter(([startPlace, endPlace]) => !!endPlace)
+    .switchMap(([start, end]) => this.mapsService.getDirectionsBetweenPlaces(start, end)
+      .mergeMap((res: any) => Observable.of(
+        new mapsActions.SetDirectionsBetweenPlaces(res)
       ))
     );
 

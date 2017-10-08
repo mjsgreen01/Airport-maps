@@ -4,12 +4,14 @@ export interface MapsState {
   start_place: Object;
   end_place: Object;
   distance_between: string;
+  directions_between: Object;
 };
 
 export const initialMapsState: MapsState = {
   start_place: {},
   end_place: {},
-  distance_between: ''
+  distance_between: '',
+  directions_between: {}
 };
 
 
@@ -31,6 +33,12 @@ export function mapsReducer(state = initialMapsState, action: mapsActions.Action
     case mapsActions.SetDistanceBetweenPlaces.type: {
       return Object.assign({}, state, {
         distance_between: action.payload
+      });
+    }
+
+    case mapsActions.SetDirectionsBetweenPlaces.type: {
+      return Object.assign({}, state, {
+        directions_between: action.payload
       });
     }
 

@@ -9,16 +9,18 @@ import * as appSelectors from 'common/stores/app';
 @Component({
   selector: 'airports',
   templateUrl: './airports.container.html',
-  // styleUrls: ['./airports.scss'],
+  styleUrls: ['./airports.scss'],
   providers: [],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AirportsContainer {
 
   public distanceBetweenPlaces$: Observable<string>;
+  public directionsBetweenPlaces$: Observable<Object>;
 
   constructor(private store: Store<AppState>) {
     this.distanceBetweenPlaces$ = this.store.select(appSelectors.getDistanceBetweenPlaces);
+    this.directionsBetweenPlaces$ = this.store.select(appSelectors.getDirectionsBetweenPlaces);
   }
 
   startPlaceChange(place) {

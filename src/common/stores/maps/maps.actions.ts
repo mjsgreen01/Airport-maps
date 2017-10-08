@@ -12,7 +12,8 @@ import { type } from 'common/stores/utils';
 export const ActionTypes = {
   SET_START_PLACE: type('[Maps] Set Start Place'),
   SET_END_PLACE: type('[Maps] Set End Place'),
-  SET_DISTANCE_BETWEEN_PLACES: type('[Maps] Set Distance Between Places')
+  SET_DISTANCE_BETWEEN_PLACES: type('[Maps] Set Distance Between Places'),
+  SET_DIRECTIONS_BETWEEN_PLACES: type('[Maps] Set Directions Between Places')
 };
 
 export class SetStartPlaceAction implements Action {
@@ -33,9 +34,15 @@ export class SetDistanceBetweenPlaces implements Action {
   constructor(public payload: Object) {  }
 }
 
+export class SetDirectionsBetweenPlaces implements Action {
+  static type: string = ActionTypes.SET_DIRECTIONS_BETWEEN_PLACES;
+  public type: string = SetDirectionsBetweenPlaces.type;
+  constructor(public payload: Object) {  }
+}
 
 export type Actions
   = SetStartPlaceAction
   | SetEndPlaceAction
   | SetDistanceBetweenPlaces
+  | SetDirectionsBetweenPlaces
   ;

@@ -28,8 +28,11 @@ export class MapsAutocompleteDirective {
 
   ngAfterViewInit() {
     let input = this._el;
+    let options = {
+      componentRestrictions: {country: 'us'}
+    };
 
-    this.autocomplete = new this.window.google.maps.places.Autocomplete(input, {});
+    this.autocomplete = new this.window.google.maps.places.Autocomplete(input, options);
     this.window.google.maps.event.addListener(this.autocomplete, 'place_changed', () => {
       let place = this.autocomplete.getPlace();
       this.placeChange(place);

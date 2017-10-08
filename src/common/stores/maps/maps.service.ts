@@ -12,4 +12,8 @@ export class MapsService {
   getDistanceBetweenPlaces(start, end): Observable<Object> {
     return this.googleMapsApiService.getDistance(start, end);
   }
+
+  getDirectionsBetweenPlaces(start, end): Observable<Object> {
+    return this.googleMapsApiService.getDirections(start, end);
+  }
 }

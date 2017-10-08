@@ -10,3 +10,5 @@ export const getStartPlace = createSelector(getMapsState, MapsSelectors.getStart
 export const getEndPlace = createSelector(getMapsState, MapsSelectors.getEndPlace);
 
 export const getDistanceBetweenPlaces = createSelector(getMapsState, MapsSelectors.getDistanceBetweenPlaces);
+
+export const getDirectionsBetweenPlaces = createSelector(getMapsState, MapsSelectors.getDirectionsBetweenPlaces);
