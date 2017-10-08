@@ -15,7 +15,7 @@ export class MapsAutocompleteDirective {
   autocomplete: any;
   private _el: HTMLElement;
 
-  @Output() setAddress: EventEmitter<any> = new EventEmitter();
+  @Output() onPlaceChange: EventEmitter<any> = new EventEmitter();
 
 
   constructor(el: ElementRef,
@@ -32,13 +32,13 @@ export class MapsAutocompleteDirective {
     this.autocomplete = new this.window.google.maps.places.Autocomplete(input, {});
     this.window.google.maps.event.addListener(this.autocomplete, 'place_changed', () => {
       let place = this.autocomplete.getPlace();
-      this.onPlaceChange(place);
+      this.placeChange(place);
 
     });
   }
 
-  onPlaceChange(place: Object) {
-    this.setAddress.emit(place);
+  placeChange(place: Object) {
+    this.onPlaceChange.emit(place);
   }
 
   onInputChange() {

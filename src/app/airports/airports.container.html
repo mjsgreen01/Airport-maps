@@ -1,3 +1,8 @@
 <div>
-  <jg-airport-autocomplete></jg-airport-autocomplete>
+  <jg-airport-autocomplete
+    (onPlaceChange)="startPlaceChange($event)">
+  </jg-airport-autocomplete>
+  <jg-airport-autocomplete
+    (onPlaceChange)="endPlaceChange($event)">
+  </jg-airport-autocomplete>
 </div>
