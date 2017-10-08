@@ -5,4 +5,5 @@
   <jg-airport-autocomplete
     (onPlaceChange)="endPlaceChange($event)">
   </jg-airport-autocomplete>
+  {{(distanceBetweenPlaces$ | async)}}
 </div>

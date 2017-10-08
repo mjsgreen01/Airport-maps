@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AirportAutocompleteComponent } from './airport-autocomplete.component';
-import { JgMapsAutocompleteModule } from '../directives/maps-autocomplete/index';
+import { JgMapsAutocompleteModule } from 'common/components/directives/maps-autocomplete/index';
 
 @NgModule({
   declarations: [

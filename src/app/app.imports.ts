@@ -13,6 +13,7 @@ import { TransferHttpModule } from '../modules/transfer-http/transfer-http.modul
 import { rootReducer } from '../common/stores';
 import { StoreDevToolsModule } from './features/store-devtools.module';
 import { UserEffects } from '../common/stores/user/user.effects';
+import { MapsEffects } from '../common/stores/maps/maps.effects';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&
@@ -28,6 +29,7 @@ if (ENV === 'development' && !AOT &&
 
 export const APP_IMPORTS = [
   EffectsModule.run(UserEffects),
+  EffectsModule.run(MapsEffects),
   // MaterialModule,
   ReactiveFormsModule,
   RouterStoreModule.connectRouter(),
