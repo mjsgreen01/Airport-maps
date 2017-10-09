@@ -50,7 +50,8 @@ exports.EXCLUDE_SOURCE_MAPS = [
   // these packages have problems with their sourcemaps
   root('node_modules/@angular'),
   root('node_modules/@nguniversal'),
-  root('node_modules/rxjs')
+  root('node_modules/rxjs'),
+  root('node_modules/ng2-completer')
 ]
 
 exports.MY_COPY_FOLDERS = [

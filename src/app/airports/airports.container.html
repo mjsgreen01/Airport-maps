@@ -1,12 +1,18 @@
 <div>
   <jg-airport-autocomplete
-    (onPlaceChange)="startPlaceChange($event)">
+    [options]="(startSearchResults$ | async)"
+    [searchTerm]="(startSearchTerm$ | async)"
+    (onPlaceChange)="startPlaceChange($event)"
+    (onQueryChange)="startQueryChange($event)">
   </jg-airport-autocomplete>
   <jg-airport-autocomplete
-    (onPlaceChange)="endPlaceChange($event)">
+    [options]="(endSearchResults$ | async)"
+    [searchTerm]="(endSearchTerm$ | async)"
+    (onPlaceChange)="endPlaceChange($event)"
+    (onQueryChange)="endQueryChange($event)">
   </jg-airport-autocomplete>
 
-  <div>{{(distanceBetweenPlaces$ | async)}}</div>
+  <div>Distance: {{(distanceBetweenPlaces$ | async)}}</div>
 
   <div JgMapsRenderer
        class="airports__map-container"

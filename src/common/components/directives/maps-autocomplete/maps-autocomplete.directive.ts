@@ -11,8 +11,8 @@ import { WindowRef } from 'common/utils/window-ref';
 })
 export class MapsAutocompleteDirective {
   private window;
-  modelValue: any;
-  autocomplete: any;
+  private modelValue: any;
+  private autocomplete: any;
   private _el: HTMLElement;
 
   @Output() onPlaceChange: EventEmitter<any> = new EventEmitter();

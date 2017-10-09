@@ -13,7 +13,11 @@ export const ActionTypes = {
   SET_START_PLACE: type('[Maps] Set Start Place'),
   SET_END_PLACE: type('[Maps] Set End Place'),
   SET_DISTANCE_BETWEEN_PLACES: type('[Maps] Set Distance Between Places'),
-  SET_DIRECTIONS_BETWEEN_PLACES: type('[Maps] Set Directions Between Places')
+  SET_DIRECTIONS_BETWEEN_PLACES: type('[Maps] Set Directions Between Places'),
+  SET_START_SEARCH_TERM: type('[Maps] Set Start Place Search Term'),
+  SET_END_SEARCH_TERM: type('[Maps] Set End Place Search Term'),
+  SET_START_SEARCH_RESULTS: type('[Maps] Set Start Place Search Results'),
+  SET_END_SEARCH_RESULTS: type('[Maps] Set End Place Search Results'),
 };
 
 export class SetStartPlaceAction implements Action {
@@ -40,9 +44,37 @@ export class SetDirectionsBetweenPlaces implements Action {
   constructor(public payload: Object) {  }
 }
 
+export class SetStartSearchTerm implements Action {
+  static type: string = ActionTypes.SET_START_SEARCH_TERM;
+  public type: string = SetStartSearchTerm.type;
+  constructor(public payload: Object) {  }
+}
+
+export class SetEndSearchTerm implements Action {
+  static type: string = ActionTypes.SET_END_SEARCH_TERM;
+  public type: string = SetEndSearchTerm.type;
+  constructor(public payload: Object) {  }
+}
+
+export class SetStartSearchResults implements Action {
+  static type: string = ActionTypes.SET_START_SEARCH_RESULTS;
+  public type: string = SetStartSearchResults.type;
+  constructor(public payload: Object) {  }
+}
+
+export class SetEndSearchResults implements Action {
+  static type: string = ActionTypes.SET_END_SEARCH_RESULTS;
+  public type: string = SetEndSearchResults.type;
+  constructor(public payload: Object) {  }
+}
+
 export type Actions
   = SetStartPlaceAction
   | SetEndPlaceAction
   | SetDistanceBetweenPlaces
   | SetDirectionsBetweenPlaces
+  | SetStartSearchTerm
+  | SetEndSearchTerm
+  | SetStartSearchResults
+  | SetEndSearchResults
   ;

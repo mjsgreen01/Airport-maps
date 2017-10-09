@@ -16,4 +16,8 @@ export class MapsService {
   getDirectionsBetweenPlaces(start, end): Observable<Object> {
     return this.googleMapsApiService.getDirections(start, end);
   }
+
+  getSearchResults(text: string): Observable<Object> {
+    return this.googleMapsApiService.getSearchResults(text);
+  }
 }

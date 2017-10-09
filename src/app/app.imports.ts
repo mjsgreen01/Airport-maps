@@ -11,9 +11,10 @@ import { useLogMonitor } from '@ngrx/store-log-monitor';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
 import { rootReducer } from '../common/stores';
-import { StoreDevToolsModule } from './features/store-devtools.module';
+import { StoreDevToolsModule } from './devtools/store-devtools.module';
 import { UserEffects } from '../common/stores/user/user.effects';
 import { MapsEffects } from '../common/stores/maps/maps.effects';
+import { Ng2CompleterModule } from 'ng2-completer';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&

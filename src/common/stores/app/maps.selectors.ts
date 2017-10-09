@@ -12,3 +12,11 @@ export const getEndPlace = createSelector(getMapsState, MapsSelectors.getEndPlac
 export const getDistanceBetweenPlaces = createSelector(getMapsState, MapsSelectors.getDistanceBetweenPlaces);
 
 export const getDirectionsBetweenPlaces = createSelector(getMapsState, MapsSelectors.getDirectionsBetweenPlaces);
+
+export const getEndSearchResults = createSelector(getMapsState, MapsSelectors.getEndSearchResults);
+
+export const getStartSearchResults = createSelector(getMapsState, MapsSelectors.getStartSearchResults);
+
+export const getStartSearchTerm = createSelector(getMapsState, MapsSelectors.getStartSearchTerm);
+
+export const getEndSearchTerm = createSelector(getMapsState, MapsSelectors.getEndSearchTerm);

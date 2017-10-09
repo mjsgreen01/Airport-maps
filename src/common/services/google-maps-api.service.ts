@@ -9,11 +9,13 @@ export class GoogleMapsApiService {
   private window;
   private distanceMatrixService;
   private directionsService;
+  private placesService;
 
   constructor(windowRef: WindowRef) {
     this.window = windowRef.nativeWindow;
     this.distanceMatrixService =  new this.window.google.maps.DistanceMatrixService();
     this.directionsService = new this.window.google.maps.DirectionsService();
+    this.placesService = new this.window.google.maps.places.PlacesService(document.body.appendChild(document.createElement('div')));
   }
 
 
@@ -36,6 +38,15 @@ export class GoogleMapsApiService {
       destination: end.formatted_address,
       travelMode: 'DRIVING',
       unitSystem: this.window.google.maps.UnitSystem.IMPERIAL
+    };
+    return boundFunction(apiArgs).map(([response, status]) => response);
+  }
+
+  getSearchResults(text: string) {debugger;
+    let boundFunction: any = Observable.bindCallback((query, cb) => this.placesService.textSearch(query, cb));
+    let apiArgs = {
+      query: text,
+      type: 'airport'
     };
     return boundFunction(apiArgs).map(([response, status]) => response);
   }

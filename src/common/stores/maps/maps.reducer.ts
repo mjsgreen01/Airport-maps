@@ -1,17 +1,25 @@
 import * as mapsActions from './maps.actions';
 
 export interface MapsState {
-  start_place: Object;
-  end_place: Object;
+  start_place: any;
+  end_place: any;
   distance_between: string;
-  directions_between: Object;
+  directions_between: any;
+  start_search_results: Array<any>;
+  end_search_results: Array<any>;
+  start_search_term: string;
+  end_search_term: string;
 };
 
 export const initialMapsState: MapsState = {
   start_place: {},
   end_place: {},
   distance_between: '',
-  directions_between: {}
+  directions_between: {},
+  start_search_results: [],
+  end_search_results: [],
+  start_search_term: '',
+  end_search_term: ''
 };
 
 
@@ -39,6 +47,30 @@ export function mapsReducer(state = initialMapsState, action: mapsActions.Action
     case mapsActions.SetDirectionsBetweenPlaces.type: {
       return Object.assign({}, state, {
         directions_between: action.payload
+      });
+    }
+
+    case mapsActions.SetStartSearchResults.type: {
+      return Object.assign({}, state, {
+        start_search_results: action.payload
+      });
+    }
+
+    case mapsActions.SetEndSearchResults.type: {
+      return Object.assign({}, state, {
+        end_search_results: action.payload
+      });
+    }
+
+    case mapsActions.SetStartSearchTerm.type: {
+      return Object.assign({}, state, {
+        start_search_term: action.payload
+      });
+    }
+
+    case mapsActions.SetEndSearchTerm.type: {
+      return Object.assign({}, state, {
+        end_search_term: action.payload
       });
     }
 
