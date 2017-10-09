@@ -70,7 +70,7 @@ export class MapsEffects {
   fetchStartSearchResults$: Observable<Action> = this.actions$
     .ofType(mapsActions.ActionTypes.SET_START_SEARCH_TERM)
     .map(toPayload)
-    .mergeMap((payload) => this.mapsService.getSearchResults(payload)
+    .switchMap((payload) => this.mapsService.getSearchResults(payload)
       .mergeMap((res: any) => Observable.of(
         new mapsActions.SetStartSearchResults(res)
       ))
@@ -80,7 +80,7 @@ export class MapsEffects {
   fetchEndSearchResults$: Observable<Action> = this.actions$
     .ofType(mapsActions.ActionTypes.SET_END_SEARCH_TERM)
     .map(toPayload)
-    .mergeMap((payload) => this.mapsService.getSearchResults(payload)
+    .switchMap((payload) => this.mapsService.getSearchResults(payload)
       .mergeMap((res: any) => Observable.of(
         new mapsActions.SetEndSearchResults(res)
       ))
