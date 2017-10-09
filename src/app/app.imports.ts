@@ -1,6 +1,4 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-import { MaterialModule } from '@angular/material';
 
 import { EffectsModule } from '@ngrx/effects';
 import { RouterStoreModule } from '@ngrx/router-store';
@@ -12,9 +10,7 @@ import { TransferHttpModule } from '../modules/transfer-http/transfer-http.modul
 
 import { rootReducer } from '../common/stores';
 import { StoreDevToolsModule } from './devtools/store-devtools.module';
-import { UserEffects } from '../common/stores/user/user.effects';
-import { MapsEffects } from '../common/stores/maps/maps.effects';
-import { Ng2CompleterModule } from 'ng2-completer';
+import { MapsEffects } from 'common/stores/maps/maps.effects';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&
@@ -29,13 +25,11 @@ if (ENV === 'development' && !AOT &&
 ]);
 
 export const APP_IMPORTS = [
-  EffectsModule.run(UserEffects),
   EffectsModule.run(MapsEffects),
-  // MaterialModule,
-  ReactiveFormsModule,
   RouterStoreModule.connectRouter(),
   StoreModule.provideStore(rootReducer),
   STORE_DEV_TOOLS_IMPORTS,
   StoreDevToolsModule,
-  TransferHttpModule
+  TransferHttpModule,
+  ReactiveFormsModule
 ];

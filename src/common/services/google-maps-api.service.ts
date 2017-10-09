@@ -42,13 +42,15 @@ export class GoogleMapsApiService {
     return boundFunction(apiArgs).map(([response, status]) => response);
   }
 
-  getSearchResults(text: string) {debugger;
+  getSearchResults(text: string) {
     let boundFunction: any = Observable.bindCallback((query, cb) => this.placesService.textSearch(query, cb));
     let apiArgs = {
       query: text,
       type: 'airport'
     };
-    return boundFunction(apiArgs).map(([response, status]) => response);
+    return boundFunction(apiArgs).map(([response, status]) => {
+      return response.filter(r => r.formatted_address.indexOf('United States') >= 0);
+    });
   }
 
 

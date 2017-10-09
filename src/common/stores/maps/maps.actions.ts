@@ -23,49 +23,49 @@ export const ActionTypes = {
 export class SetStartPlaceAction implements Action {
   static type: string = ActionTypes.SET_START_PLACE;
   public type: string = SetStartPlaceAction.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export class SetEndPlaceAction implements Action {
   static type: string = ActionTypes.SET_END_PLACE;
   public type: string = SetEndPlaceAction.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export class SetDistanceBetweenPlaces implements Action {
   static type: string = ActionTypes.SET_DISTANCE_BETWEEN_PLACES;
   public type: string = SetDistanceBetweenPlaces.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export class SetDirectionsBetweenPlaces implements Action {
   static type: string = ActionTypes.SET_DIRECTIONS_BETWEEN_PLACES;
   public type: string = SetDirectionsBetweenPlaces.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export class SetStartSearchTerm implements Action {
   static type: string = ActionTypes.SET_START_SEARCH_TERM;
   public type: string = SetStartSearchTerm.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export class SetEndSearchTerm implements Action {
   static type: string = ActionTypes.SET_END_SEARCH_TERM;
   public type: string = SetEndSearchTerm.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export class SetStartSearchResults implements Action {
   static type: string = ActionTypes.SET_START_SEARCH_RESULTS;
   public type: string = SetStartSearchResults.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export class SetEndSearchResults implements Action {
   static type: string = ActionTypes.SET_END_SEARCH_RESULTS;
   public type: string = SetEndSearchResults.type;
-  constructor(public payload: Object) {  }
+  constructor(public payload: any) {  }
 }
 
 export type Actions

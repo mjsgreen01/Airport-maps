@@ -21,7 +21,6 @@ import {
 } from '../modules/transfer-state/browser-transfer-state.module';
 
 import { APP_DECLARATIONS } from './app.declarations';
-import { APP_ENTRY_COMPONENTS } from './app.entry-components';
 import { APP_IMPORTS } from './app.imports';
 import { APP_PROVIDERS } from './app.providers';
 
@@ -37,7 +36,6 @@ import { JgAirportsModule } from './airports/index';
     AppComponent,
     APP_DECLARATIONS
   ],
-  entryComponents: [APP_ENTRY_COMPONENTS],
   imports: [
     CommonModule,
     DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],

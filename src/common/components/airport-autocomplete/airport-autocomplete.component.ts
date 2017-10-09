@@ -5,29 +5,34 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'jg-airport-autocomplete',
+  styleUrls: ['./airport-autocomplete.component.scss'],
   template: `
-    <input [(ngModel)]="searchStr"
-           (ngModelChange)="textChange($event)"
-           type="text"
-           class="form-control"
-           placeholder="Location"
-           name="Location">
-    <ul>
-      <li *ngFor="let option of options"
-          (click)="placeChange(option)">
-        {{option.name}}
-      </li>
-    </ul>
+    <div class="airport-autocomplete">
+      <input [(ngModel)]="searchTerm"
+             (ngModelChange)="textChange($event)"
+             (blur)="onBlur()"
+             type="text"
+             class="airport-autocomplete__input form-control"
+             placeholder="Airport"
+             name="Airport">
+      <div *ngIf="showResults"
+           class="airport-autocomplete__results">
+        <div *ngFor="let option of options"
+            (mousedown)="placeChange(option)"
+             class="airport-autocomplete__result">
+          {{option.name}}
+        </div>
+      </div>
+    </div>
   `
 })
 export class AirportAutocompleteComponent {
-  public dataService: CompleterData;
-  public searchStr;
-  public show = false;
+  public showResults = false;
   private _options = [];
   private oldValue;
   @Input()
-  set options(val: Array<any>) {debugger;
+  set options(val: Array<any>) {
+    this.showResults = true;
     this._options = val;
   }
   get options(): Array<any> {
@@ -43,15 +48,19 @@ export class AirportAutocompleteComponent {
   constructor() {
   }
 
-  placeChange(place) {debugger;
+  placeChange(place) {
     console.log(place);
     this.onPlaceChange.emit(place);
   }
 
-  textChange(text) {debugger;
+  textChange(text) {
     if(this.oldValue !== text && text !== '') {
       this.onQueryChange.emit(text);
       this.oldValue = text;
     }
+  }
+
+  onBlur() {
+    this.showResults = false;
   }
 }

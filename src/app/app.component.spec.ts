@@ -3,8 +3,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '@angular/material';
-
 import {
   BrowserTransferStateModule
 } from '../modules/transfer-state/browser-transfer-state.module';
@@ -21,7 +19,6 @@ describe('App Component', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserTransferStateModule,
-        MaterialModule,
         ReactiveFormsModule,
         RouterTestingModule.withRoutes(routes),
         StoreDevToolsModule

@@ -1,6 +1,8 @@
 "use strict";
 const root = require('./helpers.js').root
 const ip = require('ip');
+const path = require('path');
+const process = require('process');
 
 exports.HOST = ip.address();
 exports.DEV_PORT = 3000;
@@ -49,9 +51,10 @@ exports.STORE_DEV_TOOLS = 'monitor'
 exports.EXCLUDE_SOURCE_MAPS = [
   // these packages have problems with their sourcemaps
   root('node_modules/@angular'),
+  root('node_modules/@angular/core'),
   root('node_modules/@nguniversal'),
   root('node_modules/rxjs'),
-  root('node_modules/ng2-completer')
+  root('node_modules/@angular/platform-browser-dynamic'),
 ]
 
 exports.MY_COPY_FOLDERS = [

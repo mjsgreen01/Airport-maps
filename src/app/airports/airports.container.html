@@ -1,21 +1,32 @@
-<div>
-  <jg-airport-autocomplete
-    [options]="(startSearchResults$ | async)"
-    [searchTerm]="(startSearchTerm$ | async)"
-    (onPlaceChange)="startPlaceChange($event)"
-    (onQueryChange)="startQueryChange($event)">
-  </jg-airport-autocomplete>
-  <jg-airport-autocomplete
-    [options]="(endSearchResults$ | async)"
-    [searchTerm]="(endSearchTerm$ | async)"
-    (onPlaceChange)="endPlaceChange($event)"
-    (onQueryChange)="endQueryChange($event)">
-  </jg-airport-autocomplete>
-
-  <div>Distance: {{(distanceBetweenPlaces$ | async)}}</div>
-
-  <div JgMapsRenderer
-       class="airports__map-container"
-        [routes]="(directionsBetweenPlaces$ | async)">
+<div class="container airports">
+  <div class="grid">
+    <div class="col-6">
+      <h5>Origin Airport:</h5>
+      <jg-airport-autocomplete
+        class="airports__autocomplete"
+        [options]="(startSearchResults$ | async)"
+        [searchTerm]="(startSearchTerm$ | async)"
+        (onPlaceChange)="startPlaceChange($event)"
+        (onQueryChange)="startQueryChange($event)">
+      </jg-airport-autocomplete>
+    </div>
+    <div class="col-6">
+      <h5>Destination Airport:</h5>
+      <jg-airport-autocomplete
+        class="airports__autocomplete"
+        [options]="(endSearchResults$ | async)"
+        [searchTerm]="(endSearchTerm$ | async)"
+        (onPlaceChange)="endPlaceChange($event)"
+        (onQueryChange)="endQueryChange($event)">
+      </jg-airport-autocomplete>
+    </div>
+  </div>
+  <div *ngIf="(distanceBetweenPlaces$ | async)"
+        class="airports__results-wrapper">
+    <h4>Distance: {{(distanceBetweenPlaces$ | async)}}</h4>
+    <div JgMapsRenderer
+         class="airports__map-container"
+         [routes]="(directionsBetweenPlaces$ | async)">
+    </div>
   </div>
 </div>

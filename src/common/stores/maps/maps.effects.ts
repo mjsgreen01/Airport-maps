@@ -11,7 +11,6 @@ import * as appSelectors from 'common/stores/app';
 import { MapsService } from './maps.service';
 
 @Injectable()
-
 export class MapsEffects {
   constructor(
     private actions$: Actions,

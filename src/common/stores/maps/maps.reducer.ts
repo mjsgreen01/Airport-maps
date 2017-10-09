@@ -28,13 +28,15 @@ export function mapsReducer(state = initialMapsState, action: mapsActions.Action
 
     case mapsActions.SetStartPlaceAction.type: {
       return Object.assign({}, state, {
-        start_place: action.payload
+        start_place: action.payload,
+        start_search_term: action.payload.name
       });
     }
 
     case mapsActions.SetEndPlaceAction.type: {
       return Object.assign({}, state, {
-        end_place: action.payload
+        end_place: action.payload,
+        end_search_term: action.payload.name
       });
     }
 

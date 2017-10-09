@@ -4,23 +4,20 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { storeLogger } from 'ngrx-store-logger';
 import { routerReducer, RouterState } from '@ngrx/router-store';
 
-import * as fromUser from './user/user.reducer';
-import { mapsReducer, MapsState } from './maps/maps.reducer';
+import * as fromMaps from './maps/maps.reducer';
 
 const modules = {
-  'user': fromUser
+  'maps': fromMaps
 };
 
 export interface AppState {
   router: RouterState;
-  user: fromUser.UserState;
-  maps: MapsState;
+  maps: fromMaps.MapsState;
 }
 
 export const syncReducers = {
   router: routerReducer,
-  user: fromUser.userReducer,
-  maps: mapsReducer
+  maps: fromMaps.mapsReducer
 };
 
 const deepCombineReducers = (allReducers: any) => {
