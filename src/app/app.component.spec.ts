@@ -13,25 +13,47 @@ import { routes } from './app.routing';
 import { StoreDevToolsModule } from './devtools/store-devtools.module';
 
 import 'rxjs/add/operator/takeUntil';
+import { JgAirportsModule } from './airports/index';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('App Component', () => {
+  let fixture;
+  let de: DebugElement;
+  let getDebugElement;
+  let cp;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         BrowserTransferStateModule,
         ReactiveFormsModule,
         RouterTestingModule.withRoutes(routes),
-        StoreDevToolsModule
+        StoreDevToolsModule,
+        JgAirportsModule
         ],
       providers: [],
       declarations: [AppComponent, NotFound404Component]
     });
   });
 
-  it('should contain app text', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+
+    cp = fixture.componentInstance;
+    de = fixture.debugElement;
+
+    getDebugElement = (selector) => {
+      return de.query(By.css(selector));
+    };
+
     fixture.detectChanges();
-    expect(fixture.nativeElement).toContainText('Angular Starter App');
-  }));
+
+  });
+
+  it('should contain a router-outlet', () => {
+    let routerOutlet = getDebugElement('router-outlet');
+    expect(routerOutlet.nativeElement).toBeDefined();
+  });
 
 });

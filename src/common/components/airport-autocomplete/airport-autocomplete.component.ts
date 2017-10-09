@@ -1,6 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CompleterData, CompleterService } from 'ng2-completer';
-import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -49,7 +47,6 @@ export class AirportAutocompleteComponent {
   }
 
   placeChange(place) {
-    console.log(place);
     this.onPlaceChange.emit(place);
   }
 

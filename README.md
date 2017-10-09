@@ -2,8 +2,6 @@
 
 ## Getting Started
 
-> Featuring Material Design 2, Webpack 2 (and Webpack DLL plugin for faster dev builds), HMR (Hot Module Replacement), @ngrx for state management and optional server-side rendering with Universal.
-
 ###### You can use npm, but it's recommended to use yarn as it installs a lot faster and has other benefits https://yarnpkg.com/ . Make sure you are using yarn version 0.16.0 or newer (check with 'yarn --version')
 
 ```bash
@@ -11,7 +9,7 @@ yarn
 yarn start
 ```
 
-## Features
+## Tech
 
 * Angular 2
   * Async loading
@@ -53,33 +51,6 @@ Default ports and option to use proxy backend for dev server can be changed in `
 
 To create AOT version, run `yarn run build:aot`. This will compile and build script.
 Then you can use `yarn run prodserver` to see to serve files.
-
-### Store Log Monitor / Store Logger
-
-In development mode, the store log monitor appears on the right hand of your screen. This allows
-you to view your stored state and manipulate your state history. By default, the monitor is NOT imported
-when you are in production mode. State history is also not saved in production mode.
-
-There is also an option to use store-logger which outputs to the console instead of your application view.
-To set your development mode store logging preference, go to the constant.js file and edit the `STORE_DEV_TOOLS` constant.
-Available options are `monitor | logger | both | none`
-
-### HMR (Hot Module Replacement)
-
-HMR mode allows you to update a particular module without reloading the entire application.
-The current state of your app is also stored in @ngrx/store allowing you to make updates to your
-code without losing your currently stored state.
-
-### AOT  Don'ts
-
-The following are some things that will make AOT compile fail.
-
-- Don’t use require statements for your templates or styles, use styleUrls and templateUrls, the angular2-template-loader plugin will change it to require at build time.
-- Don’t use default exports.
-- Don’t use form.controls.controlName, use form.get(‘controlName’)
-- Don’t use control.errors?.someError, use control.hasError(‘someError’)
-- Don’t use functions in your providers, routes or declarations, export a function and then reference that function name
-- Inputs, Outputs, View or Content Child(ren), Hostbindings, and any field you use from the template or annotate for Angular should be public
 
 ### Testing
 

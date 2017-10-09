@@ -1,3 +1,4 @@
+const path = require('path');
 /**
  * @authors: @qdouble and @AngularClass
  */
@@ -48,7 +49,8 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
      */
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
+    modules: [path.resolve('./src'), 'node_modules']
 
   },
 

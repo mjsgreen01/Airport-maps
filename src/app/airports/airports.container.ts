@@ -7,7 +7,7 @@ import * as mapsActions from 'common/stores/maps/maps.actions';
 import * as appSelectors from 'common/stores/app';
 
 @Component({
-  selector: 'airports',
+  selector: 'jg-airports',
   templateUrl: './airports.container.html',
   styleUrls: ['./airports.scss'],
   // changeDetection: ChangeDetectionStrategy.OnPush
